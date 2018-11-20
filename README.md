@@ -1,7 +1,12 @@
 # EasyCanvas
 小程序canvas辅助库
+
+# 介绍
+小程序canvas辅助工具，简化绘制过程，兼容Android、IOS双平台，让你的绘制过程优雅起来，欢迎大家使用和讨论。邮箱jialongkou@163.com
+
 # 使用方法
 const easyCanvas = require('easyCanvas/easyCanvas.js');
+
 # API
 1 绘制圆角矩形（处理后只能在切出区域内绘制）
 * @param ctx 画布
@@ -98,7 +103,7 @@ const easyCanvas = require('easyCanvas/easyCanvas.js');
  11 px转换rpx
  * pxTorpx(px)
  
- 12 保存图片到相册
+ 12 保存图片到缓存
  * @param that 上下文环境
  * @param cName 画布id
  * @param isTry 是否在保存失败后重试
