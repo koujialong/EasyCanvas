@@ -140,6 +140,7 @@ const save2PhotoAlbum = (path) => {
 };
 
 /**
+ * 绘制文本
  * @param ctx 画布
  * @param text 待绘制文案
  * @param fontSize 字符大小
