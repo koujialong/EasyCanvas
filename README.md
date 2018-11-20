@@ -3,7 +3,7 @@
 # 使用方法
 const easyCanvas = require('easyCanvas/easyCanvas.js');
 # API
-1 切绘制圆角矩形（处理后只能在切出区域内绘制）
+1 绘制圆角矩形（处理后只能在切出区域内绘制）
 * @param ctx 画布
 * @param color 颜色
 * @param x 左上角x坐标
@@ -14,7 +14,7 @@ const easyCanvas = require('easyCanvas/easyCanvas.js');
 * drawRoundRect(ctx, color, x, y, w, h, r)
 
 
- 2 切绘制矩形（处理后只能在切出区域内绘制）
+ 2 绘制矩形（处理后只能在切出区域内绘制）
  * @param ctx 画布
  * @param color 颜色
  * @param x 左上角x坐标
