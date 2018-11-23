@@ -71,14 +71,16 @@ const drawRect = (ctx, color, x, y, w, h) => {
  * @param x 圆心x
  * @param y 圆心y
  * @param r 半径
+ * @param borderW 圆外框留白（默认不留白）
  */
-const drawRoundImage = (ctx, image, x, y, r) => {
+const drawRoundImage = (ctx, image, x, y, r, borderW = 0) => {
     x = rpxTopx(x);
     y = rpxTopx(y);
     r = rpxTopx(r);
+    borderW = rpxTopx(borderW);
 
     ctx.save();
-    ctx.arc(x, y, r, 0, Math.PI * 2, false);
+    ctx.arc(x + borderW, y + borderW, r + borderW, 0, Math.PI * 2, false);
     ctx.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
     ctx.drawImage(image, x - r, y - r, 2 * r, 2 * r); // 推进去图片
     ctx.restore();
@@ -140,7 +142,6 @@ const save2PhotoAlbum = (path) => {
 };
 
 /**
- * 绘制文本
  * @param ctx 画布
  * @param text 待绘制文案
  * @param fontSize 字符大小
@@ -297,6 +298,25 @@ const wxPromisify = (fn) => {
 };
 
 /**
+ * 下载图片
+ * @param path 网络图片地址
+ * @return {Promise<any>} 图片本地地址
+ */
+const downImage = (path) => {
+    return new Promise((resolve, reject) => {
+        wx.downloadFile({
+            url: path,
+            success: function (res) {
+                resolve(res.tempFilePath)
+            },
+            fail: function (res) {
+                reject(res)
+            }
+        })
+    })
+};
+
+/**
  * 测量文案长度
  * @param ctx 画布
  * @param text 文案
@@ -336,6 +356,7 @@ module.exports = {
     drawRoundImage,
     save2Memory,
     save2PhotoAlbum,
+    downImage,
     rpxTopx,
     pxTorpx,
     measureText,

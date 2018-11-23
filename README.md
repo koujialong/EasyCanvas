@@ -34,6 +34,7 @@ const easyCanvas = require('easyCanvas/easyCanvas.js');
  * @param x 圆心x
  * @param y 圆心y
  * @param r 半径
+ * @param borderW 圆外框留白（默认不留白）
  * drawRoundImage(ctx, image, x, y, r)
  
  4 绘制图片
@@ -112,4 +113,8 @@ const easyCanvas = require('easyCanvas/easyCanvas.js');
  13 保存图片到相册
  * @param path 图片缓存位置
  * save2PhotoAlbum(path)
- 
+
+  14 下载图片
+  * @param path 网络图片地址
+  * @return {Promise<any>} 图片本地地址
+  * downImage (path)
